@@ -1,70 +1,94 @@
-# Getting Started with Create React App
+# React JS Course for Beginners
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+7 hour course from freeCodeCamp.org here https://www.youtube.com/watch?v=nTeuhbP7wdE
 
-## Available Scripts
+> Create a React site using movie data being pulled via the https://www.themoviedb.org/ API 
 
-In the project directory, you can run:
+## Start & End Dates
+* **Start:** 22nd Feb 2022
+* **End:** tbc 
 
-### `npm start`
+## What I liked & disliked
+* Still early days and a little bemused right now that including CSS, even with vars/logic in the react app itself is considered a "good idea"
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## How could I expand upon this project?
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* Add eBay & Amazon price integrations to compare prices on movies
+  * For newly released movies, this may not be possible, 
+  * Should also see if Netflix, Amazon Prime, Sky+ etc.. have API's to see if available there also
+  * Are products available for the film?
+* Could also look up wiki pages on actor, producers, characters etc...
+* Show other movies for each actor
+* Add a rating (stars?) for each movie, actor and add comments to both
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+⭐️ Course Contents ⭐️
+* ⌨️ (0:00:10) Introduction
+* ⌨️ (0:00:57) The App
+* ⌨️ (0:03:27) The Movie DB - API Key
+* ⌨️ (0:05:09) What is React? 
+* ⌨️ (0:10:49) Starter Files
+* ⌨️ (0:14:16) Quick about tooling
+* ⌨️ (0:15:50) Bootstrap with CRA
+* ⌨️ (0:19:11) Install dependencies
+* ⌨️ (0:24:17) Copy fils from starter files
+* ⌨️ (0:28:34) Setup API Key and walkthrough of API files
+* ⌨️ (0:33:24) React without JSX
+* ⌨️ (0:40:10) Short about JSX 
+* ⌨️ (0:42:52) Crash course in Props and State
+* ⌨️ (0:55:12) Short about Styled Components
+* ⌨️ (0:58:23) Global Styles
+* ⌨️ (1:08:01) Header Component
+* ⌨️ (1:21:09) Header Component - Styles
+* ⌨️ (1:25:40) Home Component - Scaffold
+* ⌨️ (1:33:45) Short about built-in hooks in React
+* ⌨️ (1:38:55) Fetch data from the API for Home Page
+* ⌨️ (1:52:44) Custom hook for Home Page
+* ⌨️ (1:59:49) HeroImage Component
+* ⌨️ (2:11:22) HeroImage Component - Styles
+* ⌨️ (2:20:23) Grid Component
+* ⌨️ (2:26:06) Grid Component - Styles
+* ⌨️ (2:29:44) Thumb Component
+* ⌨️ (2:34:59) Thumb Component - Styles
+* ⌨️ (2:37:28) Spinner Component
+* ⌨️ (2:42:03) SearchBar Component
+* ⌨️ (2:57:54) SearchBar Component - Styles
+* ⌨️ (3:02:16) SearchBar Component - Logic
+* ⌨️ (3:06:51) Button Component
+* ⌨️ (3:10:42) Button Component - Styles
+* ⌨️ (3:13:06) Button Component - Logic
+* ⌨️ (3:19:50) Short about React Router
+* ⌨️ (3:21:59) Routing with React Router
+* ⌨️ (3:34:15) Movie Component - Scaffold
+* ⌨️ (3:36:26) Fetch movie data from the API
+* ⌨️ (3:49:38) BreadCrumb Component
+* ⌨️ (3:54:49) BreadCrumb Component - Styles
+* ⌨️ (3:57:46) MovieInfo Component
+* ⌨️ (4:08:41) MovieInfo Component - Styles
+* ⌨️ (4:17:35) MovieInfoBar Component
+* ⌨️ (4:23:26) MovieInfoBar Component - Styles
+* ⌨️ (4:26:38) Actor Component
+* ⌨️ (4:32:09) Actor Component - Styles
+* ⌨️ (4:34:16) Short about PropTypes
+* ⌨️ (4:37:38) Validate Props with PropTypes
+* ⌨️ (4:48:17) Short about SessionStorage
+* ⌨️ (4:50:32) SessionStorage - Home
+* ⌨️ (4:59:34) SessionStorage - Movie
+* ⌨️ (5:03:17) Build and prepare for Netlify
+* ⌨️ (5:05:58) Netlify drag and drop and Netlify CLI
+* ⌨️ (5:10:29) Netlify Continous Deployment
+* ⌨️ (5:13:48) Bonus - Classes - SearchBar Component
+* ⌨️ (5:22:04) Bonus - Classes - Home Component
+* ⌨️ (5:33:14) Bonus - Classes - Movie Component
+* ⌨️ (5:40:39) Bonus - Typescript - Introduction
+* ⌨️ (5:42:20) Bonus - Typescript - Bootstrap project and copy files
+* ⌨️ (5:47:19) Bonus - Typescript - Refactor base files
+* ⌨️ (6:04:16) Bonus - Typescript - Refactor Home and Components
+* ⌨️ (6:14:55) Bonus - Typescript - Refactor Movie and Components
+* ⌨️ (6:25:52) Bonus - Login - Short about TMDB login and rating system
+* ⌨️ (6:29:25) Bonus - Login - Global Context
+* ⌨️ (6:34:34) Bonus - Login - Login Component
+* ⌨️ (6:50:49) Bonus - Login - Login Component - Styles
+* ⌨️ (6:53:47) Bonus - Login - Login from Header
+* ⌨️ (7:00:27) Bonus - Login - Rate Component
+* ⌨️ (7:04:35) Bonus - Login - Rating from MovieInfo
