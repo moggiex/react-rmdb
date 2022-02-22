@@ -15,8 +15,9 @@ export const useHomeFetch = () => {
     const [state, setState] = useState(initialState);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
+    const [isLoadingMore, setisLoadingMore] = useState(false);
 
-    console.log(searchTerm);
+    // console.log(searchTerm);
 
     const fetchMovies = async (page, searchTerm = "") => {
         try {
@@ -39,15 +40,34 @@ export const useHomeFetch = () => {
     };
 
     // Run once on app start and when home mounts
-    // Initial render
+    // Initial render & search
     useEffect(() => {
-        fetchMovies(1);
-    }, []);
+
+        setState(initialState);
+
+        fetchMovies(1, searchTerm);
+
+    }, [searchTerm]);
+
+    // load more
+    useEffect(() => {
+
+        // return if not loading
+        if (!isLoadingMore) return;
+
+        fetchMovies(state.page + 1, searchTerm);
+
+        // must set to false otherwise it just continues to the end!
+        setisLoadingMore(false);
+
+    }, [isLoadingMore, searchTerm, state.page]);
 
     return {
         state,
         loading,
         error,
-        setSearchTerm
+        setSearchTerm,
+        searchTerm,
+        setisLoadingMore
     };
 }
