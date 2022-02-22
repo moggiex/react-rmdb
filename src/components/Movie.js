@@ -6,6 +6,10 @@ import { IMAGE_BASE_URL, POSTER_SIZE } from '../config';
 // Components
 import Grid from './Grid';
 import Spinner from './Spinner';
+import BreadCrumb from './BreadCrumb';
+import MovieInfo from './MovieInfo';
+import MovieInfoBar from './MovieInfoBar';
+import Actor from './Actor';
 
 // Hook
 import { useMoviefetch } from '../hooks/useMovieFetch';
@@ -21,11 +25,32 @@ const Movie = () => {
     const { state: movie, loading, error } = useMoviefetch(movieId);
 
     console.log(movie);
+
+    if (loading) return <Spinner />;
+    if (error) return <div>Something went pear shaped</div>;
     // <div>{JSON.stringify(movie)}</div>
 
     return (
         <>
-            <div>{JSON.stringify(movie)}</div>
+            <BreadCrumb movieTitle={movie.original_title} />
+            <MovieInfo movie={movie} />
+            <MovieInfoBar time={movie.runtime} budget={movie.budget} revenue={movie.revenue} />
+            <Grid header='Actors'>
+                {movie.actoresactors.map(actor => (
+                    <Actor
+                        key={actor.credit_id}
+                        name={actor.name}
+                        character={actor.character}
+                        imageUrl={
+                            actor.profile_path
+                                ?
+                                `${IMAGE_BASE_URL}${POSTER_SIZE}${actor.profile_path}`
+                                :
+                                NoImage
+                        }
+                    />
+                ))}
+            </Grid>
         </>
     )
 
