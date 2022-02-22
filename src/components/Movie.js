@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 // config
-import { IMAGE_BASE_URL, POSTER_SIZE } from '../config';
+import { IMAGE_BASE_URL, POSTER_SIZE, URL_PREFIX_MOVIE } from '../config';
 
 // Components
 import Grid from './Grid';
@@ -20,11 +20,11 @@ import NoImage from '../images/no_image.jpg';
 const Movie = () => {
 
     const { movieId } = useParams();
-    console.log(movieId);
+    // console.log(movieId);
 
     const { state: movie, loading, error } = useMoviefetch(movieId);
 
-    console.log(movie);
+    // console.log(movie);
 
     if (loading) return <Spinner />;
     if (error) return <div>Something went pear shaped</div>;
@@ -32,7 +32,8 @@ const Movie = () => {
 
     return (
         <>
-            <BreadCrumb movieTitle={movie.original_title} />
+            <BreadCrumb movieTitle={movie.original_title} path={URL_PREFIX_MOVIE} />
+
             <MovieInfo movie={movie} />
             <MovieInfoBar time={movie.runtime} budget={movie.budget} revenue={movie.revenue} />
             <Grid header='Actors'>
@@ -48,6 +49,7 @@ const Movie = () => {
                                 :
                                 NoImage
                         }
+                        personId={actor.id}
                     />
                 ))}
             </Grid>
@@ -86,4 +88,21 @@ title: "The King's Man"
 video: false
 vote_average: 7.1
 vote_count: 1229
+
+actoresactors: Array(19)
+0:
+adult: false
+cast_id: 8
+character: "Mirabel Madrigal (voice)"
+credit_id: "5fee8b5e176a94003fe4998a"
+gender: 1
+id: 968367
+known_for_department: "Acting"
+name: "Stephanie Beatriz"
+order: 0
+original_name: "Stephanie Beatriz"
+popularity: 24.478
+profile_path: "/pGo7zMGsMXOMSMZc68Xi3LvzeP0.jpg"
+[[Prototype]]: Object
+
 */

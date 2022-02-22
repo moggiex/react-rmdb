@@ -8,6 +8,9 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 // console.log(process.env.REACT_APP_API_KEY);
 // process.exit();
 
+const URL_PREFIX_MOVIE = 'movie';
+const URL_PREFIX_PERSON = 'person';
+
 const SEARCH_BASE_URL = `${API_URL}search/movie?api_key=${API_KEY}&language=en-US&query=`;
 const POPULAR_BASE_URL = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US`;
 // For login and voting
@@ -32,4 +35,6 @@ export {
   REQUEST_TOKEN_URL,
   LOGIN_URL,
   SESSION_ID_URL,
+  URL_PREFIX_MOVIE,
+  URL_PREFIX_PERSON
 };

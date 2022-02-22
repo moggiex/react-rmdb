@@ -9,6 +9,8 @@ const initialState = {
     total_results: 0
 }
 
+const cache = [];
+
 export const useHomeFetch = () => {
     // States
     const [searchTerm, setSearchTerm] = useState('');
@@ -23,14 +25,53 @@ export const useHomeFetch = () => {
         try {
             setError(false);
             setLoading(true);
-            const movies = await API.fetchMovies(searchTerm, page);
-            // console.log(movies);
 
-            setState(prev => ({
-                ...movies,
-                results:
-                    page > 1 ? [...prev.results, ...movies.results] : [...movies.results]
-            }));
+            // console.log(page)
+
+            /**
+             * @todo caching eneds to be looked at here as its not quite working right
+             * else if (searchTerm && page === 1 && cache['home'][searchTerm]) {
+             */
+            if (!searchTerm && page === 1 && cache['home']) {
+
+                console.log('cached version HOME');
+                setState(prev => ({
+                    ...cache['home'],
+                    results:
+                        page > 1 ? [...prev.results, ...cache['home'].results] : [...cache['home'].results]
+                }));
+                setLoading(false);
+            } else if (searchTerm && page === 1 && cache['home'][searchTerm]) {
+
+                console.log('cached version SEARCH page 1');
+                setState(prev => ({
+                    ...cache['home'][searchTerm],
+                    results:
+                        page > 1 ? [...prev.results, ...cache['home'][searchTerm].results] : [...cache['home'][searchTerm].results]
+                }));
+                setLoading(false);
+
+            } else {
+
+                const movies = await API.fetchMovies(searchTerm, page);
+                if (!searchTerm && page === 1) {
+
+                    cache['home'] = movies;
+                    console.log('saved cache: HOME')
+                } else if (!cache['home'][searchTerm]) {
+
+                    cache['home'][searchTerm] = movies;
+                    console.log('saved cache: searchTerm: ' + searchTerm)
+                }
+                // cache['home'] = movies;
+                // console.log(movies);
+
+                setState(prev => ({
+                    ...movies,
+                    results:
+                        page > 1 ? [...prev.results, ...movies.results] : [...movies.results]
+                }));
+            }
 
             setLoading(false);
 

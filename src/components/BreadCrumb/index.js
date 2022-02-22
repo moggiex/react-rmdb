@@ -4,16 +4,23 @@ import { Link } from 'react-router-dom';
 // styles
 import { Wrapper, Content } from './BreadCrumb.styles';
 
-const BreadCrumb = ({ movieTitle }) => (
+const BreadCrumb = ({ movieTitle, path }) => (
 
     <Wrapper>
         <Content>
             <Link to='/'>
                 <span>Home</span>
             </Link>
+            {
+                path ? ' | ' : ' '
+            }
+            {
+                path ? <span>{path.charAt(0).toUpperCase() + path.slice(1)}</span> : ''
+            }
+
             | <span>{movieTitle}</span>
         </Content>
-    </Wrapper>
+    </Wrapper >
 );
 
 export default BreadCrumb;

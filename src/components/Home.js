@@ -28,8 +28,8 @@ const Home = () => {
         setisLoadingMore
     } = useHomeFetch();
 
-    console.log('here:');
-    console.log(state);
+    // console.log('here:');
+    // console.log(state);
 
     // if an error has happened
     if (error) return <div>Something went wrong</div>

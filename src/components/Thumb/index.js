@@ -7,11 +7,9 @@ import { Image } from './Thumb.styles';
 
 const Thumb = ({ image, movieId, clickable, movieTitle }) => (
 
-
-
     <div>
         {clickable ? (
-            <Link to={`/${movieId}` + (movieTitle && movieTitle.length > 0 ? '/' + toSeoUrl(movieTitle) : '')} >
+            <Link to={`/movie/${movieId}` + (movieTitle && movieTitle.length > 0 ? '-' + toSeoUrl(movieTitle) : '')} >
                 <Image src={image} alt={movieTitle} />
             </Link>
         )
