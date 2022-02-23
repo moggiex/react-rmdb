@@ -2,93 +2,102 @@
 
 7 hour course from freeCodeCamp.org here https://www.youtube.com/watch?v=nTeuhbP7wdE
 
-> Create a React site using movie data being pulled via the https://www.themoviedb.org/ API 
+> Create a React site using movie data being pulled via the https://www.themoviedb.org/ API
 
 ## Start & End Dates
-* **Start:** 22nd Feb 2022
-* **End:** tbc 
+
+- **Start:** 22nd Feb 2022
+- **End:** tbc
 
 ## What I liked & disliked
-* Still early days and a little bemused right now that including CSS, even with vars/logic in the react app itself is considered a "good idea"
+
+- Still early days and a little bemused right now that including CSS into individual files, per component, even with vars/logic in the react app itself is considered a "good idea" (I am used to just relying upon bootStrap for everything FE)
+- About 4 hours in I decided to evolve this tutorial further by:
+  - Adding cache the API calls.
+  - Adding new route for persons (actors)
+  - Expanding the breadcrumbs and routes in the url more logical ones (ie 'movie/movieId-[seo url of movie title])
+- Caching failed badly as its just client side and not server side. I would/could need to use NodeJs as middleware to the themoviedb.org API to add real caching
+- Adding a route for person and their components was easy. Stopped at the basics as there is the need to add multiple API calls to get all the data from the persons/ api
 
 ## How could I expand upon this project?
 
-* Add eBay & Amazon price integrations to compare prices on movies
-  * For newly released movies, this may not be possible, 
-  * Should also see if Netflix, Amazon Prime, Sky+ etc.. have API's to see if available there also
-  * Are products available for the film?
-* Could also look up wiki pages on actor, producers, characters etc...
-* Show other movies for each actor
-* Add a rating (stars?) for each movie, actor and add comments to both
-
+- Adding a NodeJs API to cache API calls (see notes above about the failed attempt, which I then learned was client side only)
+- Add eBay & Amazon price integrations to compare prices on movies
+  - For newly released movies, this may not be possible,
+  - Should also see if Netflix, Amazon Prime, Sky+ etc.. have API's to see if available there also
+  - Are products available for the film?
+- Could also look up wiki pages on actor, producers, characters etc...
+- Show other movies for each actor
+- Add a rating (stars?) for each movie, actor and add comments to both
 
 ⭐️ Course Contents ⭐️
-* ⌨️ (0:00:10) Introduction
-* ⌨️ (0:00:57) The App
-* ⌨️ (0:03:27) The Movie DB - API Key
-* ⌨️ (0:05:09) What is React? 
-* ⌨️ (0:10:49) Starter Files
-* ⌨️ (0:14:16) Quick about tooling
-* ⌨️ (0:15:50) Bootstrap with CRA
-* ⌨️ (0:19:11) Install dependencies
-* ⌨️ (0:24:17) Copy fils from starter files
-* ⌨️ (0:28:34) Setup API Key and walkthrough of API files
-* ⌨️ (0:33:24) React without JSX
-* ⌨️ (0:40:10) Short about JSX 
-* ⌨️ (0:42:52) Crash course in Props and State
-* ⌨️ (0:55:12) Short about Styled Components
-* ⌨️ (0:58:23) Global Styles
-* ⌨️ (1:08:01) Header Component
-* ⌨️ (1:21:09) Header Component - Styles
-* ⌨️ (1:25:40) Home Component - Scaffold
-* ⌨️ (1:33:45) Short about built-in hooks in React
-* ⌨️ (1:38:55) Fetch data from the API for Home Page
-* ⌨️ (1:52:44) Custom hook for Home Page
-* ⌨️ (1:59:49) HeroImage Component
-* ⌨️ (2:11:22) HeroImage Component - Styles
-* ⌨️ (2:20:23) Grid Component
-* ⌨️ (2:26:06) Grid Component - Styles
-* ⌨️ (2:29:44) Thumb Component
-* ⌨️ (2:34:59) Thumb Component - Styles
-* ⌨️ (2:37:28) Spinner Component
-* ⌨️ (2:42:03) SearchBar Component
-* ⌨️ (2:57:54) SearchBar Component - Styles
-* ⌨️ (3:02:16) SearchBar Component - Logic
-* ⌨️ (3:06:51) Button Component
-* ⌨️ (3:10:42) Button Component - Styles
-* ⌨️ (3:13:06) Button Component - Logic
-* ⌨️ (3:19:50) Short about React Router
-* ⌨️ (3:21:59) Routing with React Router
-* ⌨️ (3:34:15) Movie Component - Scaffold
-* ⌨️ (3:36:26) Fetch movie data from the API
-* ⌨️ (3:49:38) BreadCrumb Component
-* ⌨️ (3:54:49) BreadCrumb Component - Styles
-* ⌨️ (3:57:46) MovieInfo Component
-* ⌨️ (4:08:41) MovieInfo Component - Styles
-* ⌨️ (4:17:35) MovieInfoBar Component
-* ⌨️ (4:23:26) MovieInfoBar Component - Styles
-* ⌨️ (4:26:38) Actor Component
-* ⌨️ (4:32:09) Actor Component - Styles
-* ⌨️ (4:34:16) Short about PropTypes
-* ⌨️ (4:37:38) Validate Props with PropTypes
-* ⌨️ (4:48:17) Short about SessionStorage
-* ⌨️ (4:50:32) SessionStorage - Home
-* ⌨️ (4:59:34) SessionStorage - Movie
-* ⌨️ (5:03:17) Build and prepare for Netlify
-* ⌨️ (5:05:58) Netlify drag and drop and Netlify CLI
-* ⌨️ (5:10:29) Netlify Continous Deployment
-* ⌨️ (5:13:48) Bonus - Classes - SearchBar Component
-* ⌨️ (5:22:04) Bonus - Classes - Home Component
-* ⌨️ (5:33:14) Bonus - Classes - Movie Component
-* ⌨️ (5:40:39) Bonus - Typescript - Introduction
-* ⌨️ (5:42:20) Bonus - Typescript - Bootstrap project and copy files
-* ⌨️ (5:47:19) Bonus - Typescript - Refactor base files
-* ⌨️ (6:04:16) Bonus - Typescript - Refactor Home and Components
-* ⌨️ (6:14:55) Bonus - Typescript - Refactor Movie and Components
-* ⌨️ (6:25:52) Bonus - Login - Short about TMDB login and rating system
-* ⌨️ (6:29:25) Bonus - Login - Global Context
-* ⌨️ (6:34:34) Bonus - Login - Login Component
-* ⌨️ (6:50:49) Bonus - Login - Login Component - Styles
-* ⌨️ (6:53:47) Bonus - Login - Login from Header
-* ⌨️ (7:00:27) Bonus - Login - Rate Component
-* ⌨️ (7:04:35) Bonus - Login - Rating from MovieInfo
+
+- ⌨️ (0:00:10) Introduction
+- ⌨️ (0:00:57) The App
+- ⌨️ (0:03:27) The Movie DB - API Key
+- ⌨️ (0:05:09) What is React?
+- ⌨️ (0:10:49) Starter Files
+- ⌨️ (0:14:16) Quick about tooling
+- ⌨️ (0:15:50) Bootstrap with CRA
+- ⌨️ (0:19:11) Install dependencies
+- ⌨️ (0:24:17) Copy fils from starter files
+- ⌨️ (0:28:34) Setup API Key and walkthrough of API files
+- ⌨️ (0:33:24) React without JSX
+- ⌨️ (0:40:10) Short about JSX
+- ⌨️ (0:42:52) Crash course in Props and State
+- ⌨️ (0:55:12) Short about Styled Components
+- ⌨️ (0:58:23) Global Styles
+- ⌨️ (1:08:01) Header Component
+- ⌨️ (1:21:09) Header Component - Styles
+- ⌨️ (1:25:40) Home Component - Scaffold
+- ⌨️ (1:33:45) Short about built-in hooks in React
+- ⌨️ (1:38:55) Fetch data from the API for Home Page
+- ⌨️ (1:52:44) Custom hook for Home Page
+- ⌨️ (1:59:49) HeroImage Component
+- ⌨️ (2:11:22) HeroImage Component - Styles
+- ⌨️ (2:20:23) Grid Component
+- ⌨️ (2:26:06) Grid Component - Styles
+- ⌨️ (2:29:44) Thumb Component
+- ⌨️ (2:34:59) Thumb Component - Styles
+- ⌨️ (2:37:28) Spinner Component
+- ⌨️ (2:42:03) SearchBar Component
+- ⌨️ (2:57:54) SearchBar Component - Styles
+- ⌨️ (3:02:16) SearchBar Component - Logic
+- ⌨️ (3:06:51) Button Component
+- ⌨️ (3:10:42) Button Component - Styles
+- ⌨️ (3:13:06) Button Component - Logic
+- ⌨️ (3:19:50) Short about React Router
+- ⌨️ (3:21:59) Routing with React Router
+- ⌨️ (3:34:15) Movie Component - Scaffold
+- ⌨️ (3:36:26) Fetch movie data from the API
+- ⌨️ (3:49:38) BreadCrumb Component
+- ⌨️ (3:54:49) BreadCrumb Component - Styles
+- ⌨️ (3:57:46) MovieInfo Component
+- ⌨️ (4:08:41) MovieInfo Component - Styles
+- ⌨️ (4:17:35) MovieInfoBar Component
+- ⌨️ (4:23:26) MovieInfoBar Component - Styles
+- ⌨️ (4:26:38) Actor Component
+- ⌨️ (4:32:09) Actor Component - Styles
+- ⌨️ (4:34:16) Short about PropTypes
+- ⌨️ (4:37:38) Validate Props with PropTypes
+- ⌨️ (4:48:17) Short about SessionStorage
+- ⌨️ (4:50:32) SessionStorage - Home
+- ⌨️ (4:59:34) SessionStorage - Movie
+- ⌨️ (5:03:17) Build and prepare for Netlify
+- ⌨️ (5:05:58) Netlify drag and drop and Netlify CLI
+- ⌨️ (5:10:29) Netlify Continous Deployment
+- ⌨️ (5:13:48) Bonus - Classes - SearchBar Component
+- ⌨️ (5:22:04) Bonus - Classes - Home Component
+- ⌨️ (5:33:14) Bonus - Classes - Movie Component
+- ⌨️ (5:40:39) Bonus - Typescript - Introduction
+- ⌨️ (5:42:20) Bonus - Typescript - Bootstrap project and copy files
+- ⌨️ (5:47:19) Bonus - Typescript - Refactor base files
+- ⌨️ (6:04:16) Bonus - Typescript - Refactor Home and Components
+- ⌨️ (6:14:55) Bonus - Typescript - Refactor Movie and Components
+- ⌨️ (6:25:52) Bonus - Login - Short about TMDB login and rating system
+- ⌨️ (6:29:25) Bonus - Login - Global Context
+- ⌨️ (6:34:34) Bonus - Login - Login Component
+- ⌨️ (6:50:49) Bonus - Login - Login Component - Styles
+- ⌨️ (6:53:47) Bonus - Login - Login from Header
+- ⌨️ (7:00:27) Bonus - Login - Rate Component
+- ⌨️ (7:04:35) Bonus - Login - Rating from MovieInfo
