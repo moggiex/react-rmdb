@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { PropTypes } from 'prop-types';
 
 // Helpers
 import { toSeoUrl } from '../../helpers';
@@ -20,5 +21,11 @@ const Actor = ({ name, character, imageUrl, personId }) => (
         </Link>
     </Wrapper >
 );
+
+Actor.propTypes = {
+    name: PropTypes.string,
+    character: PropTypes.string,
+    imageUrl: PropTypes.string
+}
 
 export default Actor;

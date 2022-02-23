@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { PropTypes } from 'prop-types';
 
 // Components
 import Thumb from '../Thumb';
@@ -48,5 +49,9 @@ const MovieInfo = ({ movie }) => (
         </Content>
     </Wrapper>
 );
+
+MovieInfo.propTypes = {
+    movie: PropTypes.object
+}
 
 export default MovieInfo;
