@@ -27,3 +27,10 @@ export const toSeoUrl = url => {
     .replace(/^-*/, '')              // Remove starting dashes
     .replace(/-*$/, '');             // Remove trailing dashes
 }
+
+export const isPersistedState = stateName => {
+  // Can swap sessionStorage to localStorage instead
+  const sessionState = sessionStorage.getItem(stateName);
+  // because we can only save a string
+  return sessionState && JSON.parse(sessionState)
+}
