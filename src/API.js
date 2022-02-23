@@ -5,7 +5,8 @@ import {
   API_KEY,
   REQUEST_TOKEN_URL,
   LOGIN_URL,
-  SESSION_ID_URL
+  SESSION_ID_URL,
+  API_CACHE_TIME
 } from './config';
 
 const defaultConfig = {
@@ -19,19 +20,27 @@ const cache = [];
 
 const apiSettings = {
 
-
   fetchMovies: async (searchTerm, page) => {
     const endpoint = searchTerm
       ? `${SEARCH_BASE_URL}${searchTerm}&page=${page}`
       : `${POPULAR_BASE_URL}&page=${page}`;
 
-    if (cache[endpoint]) {
+    // console.log(
+    //   cache[endpoint].cache_ttl,
+    //   cache[endpoint].cache_ttl - Date.now(),
+    //   isCacheValid(cache[endpoint].cache_ttl)
+
+    // )
+
+    if (cache[endpoint] && isCacheValid(cache[endpoint].cache_ttl)) {
       console.log("fetchMovies: FOUND cached endpoint:" + endpoint);
       return cache[endpoint];
     }
 
     console.log("fetchMovies: NOT cached endpoint:" + endpoint);
-    return cache[endpoint] = await (await fetch(endpoint)).json();
+    const res = await (await fetch(endpoint)).json();
+    res.cache_ttl = Date.now();
+    return cache[endpoint] = res;
 
     // console.log(cache);
     // return await (await fetch(endpoint)).json();
@@ -39,24 +48,39 @@ const apiSettings = {
   fetchMovie: async movieId => {
     const endpoint = `${API_URL}movie/${movieId}?api_key=${API_KEY}`;
 
-    if (cache[endpoint]) {
+    if (cache[endpoint] && isCacheValid(cache[endpoint].cache_ttl)) {
       console.log("fetchMovie: FOUND cached endpoint:" + endpoint);
       return cache[endpoint];
     }
 
     console.log("fetchMovie: NOT cached endpoint:" + endpoint);
-    return cache[endpoint] = await (await fetch(endpoint)).json();
+    const res = await (await fetch(endpoint)).json();
+    res.cache_ttl = Date.now();
+    return cache[endpoint] = res;
 
+    // console.log("fetchMovie: NOT cached endpoint:" + endpoint);
+    // return cache[endpoint] = await (await fetch(endpoint)).json();
     // return await (await fetch(endpoint)).json();
   },
   fetchCredits: async movieId => {
-    const creditsEndpoint = `${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`;
-    return await (await fetch(creditsEndpoint)).json();
+    const endpoint = `${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`;
+
+    if (cache[endpoint] && isCacheValid(cache[endpoint].cache_ttl)) {
+      console.log("fetchCredits: FOUND cached endpoint:" + endpoint);
+      return cache[endpoint];
+    }
+
+    console.log("fetchCredits: NOT cached endpoint:" + endpoint);
+    const res = await (await fetch(endpoint)).json();
+    res.cache_ttl = Date.now();
+    return cache[endpoint] = res;
+
+    return await (await fetch(endpoint)).json();
   },
   // Added
   fetchPerson: async personId => {
-    const actorEndpoint = `${API_URL}person/${personId}s?api_key=${API_KEY}`;
-    return await (await fetch(actorEndpoint)).json();
+    const endpoint = `${API_URL}person/${personId}s?api_key=${API_KEY}`;
+    return await (await fetch(endpoint)).json();
   },
   // Bonus material below for login
   getRequestToken: async () => {
@@ -100,5 +124,17 @@ const apiSettings = {
     return rating;
   }
 };
+/**
+ * 
+ * @param {*} oldTime as date.Now() value
+ */
+const isCacheValid = (oldTime) => {
+
+  if (!oldTime) return false;
+
+  return Date.now() - oldTime < API_CACHE_TIME ? true : false;
+
+}
+
 
 export default apiSettings;

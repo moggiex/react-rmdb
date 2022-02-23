@@ -9,8 +9,6 @@ const initialState = {
     total_results: 0
 }
 
-const cache = [];
-
 export const useHomeFetch = () => {
     // States
     const [searchTerm, setSearchTerm] = useState('');

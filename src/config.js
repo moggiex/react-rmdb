@@ -4,12 +4,15 @@
 
 const API_URL = 'https://api.themoviedb.org/3/';
 const API_KEY = process.env.REACT_APP_API_KEY;
+const API_CACHE_TIME = 6000;  // time in ms see https://www.google.com/search?q=ms+to+minutes
 
 // console.log(process.env.REACT_APP_API_KEY);
 // process.exit();
 
 const URL_PREFIX_MOVIE = 'movie';
 const URL_PREFIX_PERSON = 'person';
+
+
 
 const SEARCH_BASE_URL = `${API_URL}search/movie?api_key=${API_KEY}&language=en-US&query=`;
 const POPULAR_BASE_URL = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US`;
@@ -36,5 +39,6 @@ export {
   LOGIN_URL,
   SESSION_ID_URL,
   URL_PREFIX_MOVIE,
-  URL_PREFIX_PERSON
+  URL_PREFIX_PERSON,
+  API_CACHE_TIME
 };
