@@ -28,54 +28,22 @@ export const useHomeFetch = () => {
 
             // console.log(page)
 
-            /**
-             * @todo caching eneds to be looked at here as its not quite working right
-             * else if (searchTerm && page === 1 && cache['home'][searchTerm]) {
-             */
-            if (!searchTerm && page === 1 && cache['home']) {
+            const movies = await API.fetchMovies(searchTerm, page);
 
-                console.log('cached version HOME');
-                setState(prev => ({
-                    ...cache['home'],
-                    results:
-                        page > 1 ? [...prev.results, ...cache['home'].results] : [...cache['home'].results]
-                }));
-                setLoading(false);
-            } else if (searchTerm && page === 1 && cache['home'][searchTerm]) {
+            // cache['home'] = movies;
+            // console.log(movies);
 
-                console.log('cached version SEARCH page 1');
-                setState(prev => ({
-                    ...cache['home'][searchTerm],
-                    results:
-                        page > 1 ? [...prev.results, ...cache['home'][searchTerm].results] : [...cache['home'][searchTerm].results]
-                }));
-                setLoading(false);
+            setState(prev => ({
+                ...movies,
+                results:
+                    page > 1 ? [...prev.results, ...movies.results] : [...movies.results]
+            }));
 
-            } else {
-
-                const movies = await API.fetchMovies(searchTerm, page);
-                if (!searchTerm && page === 1) {
-
-                    cache['home'] = movies;
-                    console.log('saved cache: HOME')
-                } else if (!cache['home'][searchTerm]) {
-
-                    cache['home'][searchTerm] = movies;
-                    console.log('saved cache: searchTerm: ' + searchTerm)
-                }
-                // cache['home'] = movies;
-                // console.log(movies);
-
-                setState(prev => ({
-                    ...movies,
-                    results:
-                        page > 1 ? [...prev.results, ...movies.results] : [...movies.results]
-                }));
-            }
 
             setLoading(false);
 
         } catch (err) {
+            console.log(err);
             setError(true);
         }
     };

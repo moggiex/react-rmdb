@@ -32,10 +32,15 @@ const Home = () => {
     // console.log(state);
 
     // if an error has happened
-    if (error) return <div>Something went wrong</div>
+    if (error) console.log(error)
+    if (error) return (
+        <div>Something went wrong</div>
+    );
 
     return (
         <Fragment>
+
+            <SearchBar setSearchTerm={setSearchTerm} />
 
             {!searchTerm && state.results[0]
                 ?
@@ -45,8 +50,6 @@ const Home = () => {
                     text={state.results[0].overview}
                 />
                 : null}
-
-            <SearchBar setSearchTerm={setSearchTerm} />
 
             <Grid header={searchTerm ? 'Search Results' : 'Popular Movies'}>
                 {state.results.map(movie => (

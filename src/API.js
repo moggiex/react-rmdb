@@ -15,16 +15,39 @@ const defaultConfig = {
   }
 };
 
+const cache = [];
+
 const apiSettings = {
+
+
   fetchMovies: async (searchTerm, page) => {
     const endpoint = searchTerm
       ? `${SEARCH_BASE_URL}${searchTerm}&page=${page}`
       : `${POPULAR_BASE_URL}&page=${page}`;
-    return await (await fetch(endpoint)).json();
+
+    if (cache[endpoint]) {
+      console.log("fetchMovies: FOUND cached endpoint:" + endpoint);
+      return cache[endpoint];
+    }
+
+    console.log("fetchMovies: NOT cached endpoint:" + endpoint);
+    return cache[endpoint] = await (await fetch(endpoint)).json();
+
+    // console.log(cache);
+    // return await (await fetch(endpoint)).json();
   },
   fetchMovie: async movieId => {
     const endpoint = `${API_URL}movie/${movieId}?api_key=${API_KEY}`;
-    return await (await fetch(endpoint)).json();
+
+    if (cache[endpoint]) {
+      console.log("fetchMovie: FOUND cached endpoint:" + endpoint);
+      return cache[endpoint];
+    }
+
+    console.log("fetchMovie: NOT cached endpoint:" + endpoint);
+    return cache[endpoint] = await (await fetch(endpoint)).json();
+
+    // return await (await fetch(endpoint)).json();
   },
   fetchCredits: async movieId => {
     const creditsEndpoint = `${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`;
