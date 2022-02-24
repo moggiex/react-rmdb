@@ -4,6 +4,8 @@
 
 > Create a React site using movie data being pulled via the https://www.themoviedb.org/ API
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/dc0c1a3a-15dc-40f0-b5bd-b840c48f59e8/deploy-status)](https://app.netlify.com/sites/the-awesome-moggiex-site/deploys)
+
 ## Start & End Dates
 
 - **Start:** 22nd Feb 2022
@@ -11,24 +13,28 @@
 
 ## What I liked & disliked
 
-- Still early days and a little bemused right now that including CSS into individual files, per component, even with vars/logic in the react app itself is considered a "good idea" (I am used to just relying upon bootStrap for everything FE)
+- Still early days and a little bemused right now that putting CSS into individual files (styled-components), per component, even with vars/logic in the react app itself is considered a "good idea" (I am used to just relying upon BootStrap for everything FE from Yii2)
 - About 4 hours in I decided to evolve this tutorial further by:
-  - Adding cache the API calls.
+  - Adding caching to the API calls.
   - Adding new route for persons (actors)
   - Expanding the breadcrumbs and routes in the url more logical ones (ie 'movie/movieId-[seo url of movie title])
-- Caching failed badly as its just client side and not server side. I would/could need to use NodeJs as middleware to the themoviedb.org API to add real caching
+- Caching failed badly as its just client side and not server side. I would/could need to use NodeJs as middleware to the themoviedb.org API to add real caching (caching was demostrated using session storage [could have been local] but neither cache the API calls on a app level)
 - Adding a route for person and their components was easy. Stopped at the basics as there is the need to add multiple API calls to get all the data from the persons/ api
+- During the course Netlify was demostrated. I liked how simple this was to deploy, reminded me of Heroku. However looking at Netlify more closely, I would actually choose CloudFlare pages instead. One for the unlimted bandwidth (vs 100Gb) but also I have had very good expereinces with CloudFlare as a CDN for multiple sites, hence the first choice.
 
 ## How could I expand upon this project?
 
 - Adding a NodeJs API to cache API calls (see notes above about the failed attempt, which I then learned was client side only)
+- Using a CDN to cache the images within the api to reduce the reliance upon the API data (could be simply solved by using Netlify or cloudflare as I later realised)
 - Add eBay & Amazon price integrations to compare prices on movies
-  - For newly released movies, this may not be possible,
+  - For newly released movies, this may not be possible as no DVD or products released yet
   - Should also see if Netflix, Amazon Prime, Sky+ etc.. have API's to see if available there also
   - Are products available for the film?
+  - Could look for autographs on eBay from actors
 - Could also look up wiki pages on actor, producers, characters etc...
-- Show other movies for each actor
-- Add a rating (stars?) for each movie, actor and add comments to both
+- Show other movies for each actor (eveolve the use of the provided person API to interlink everything)
+- Add a rating (stars?) for each movie, actor
+- Add the ability to add comments from users to both (would need user registration, again the reliance upon NodeJS as a BE is highlighted here for anything more than just a showcase site)
 
 ⭐️ Course Contents ⭐️
 
