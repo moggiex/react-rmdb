@@ -4,12 +4,12 @@
 
 > Create a React site using movie data being pulled via the https://www.themoviedb.org/ API
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/dc0c1a3a-15dc-40f0-b5bd-b840c48f59e8/deploy-status)](https://app.netlify.com/sites/the-awesome-moggiex-site/deploys)
+## Start, End Date & Final Project
 
-## Start & End Dates
-
-- **Start:** 22nd Feb 2022
-- **End:** tbc
+- **Start:**: 21st Feb 2022
+- **End:**: 24th Feb 2022
+- **URL:** [https://react-rmdb.pages.dev/](https://react-rmdb.pages.dev/) - Cloudflare Pages
+- **URL:** [https://the-awesome-moggiex-site.netlify.app/](https://the-awesome-moggiex-site.netlify.app/) Netlify [![Netlify Status](https://api.netlify.com/api/v1/badges/dc0c1a3a-15dc-40f0-b5bd-b840c48f59e8/deploy-status)](https://app.netlify.com/sites/the-awesome-moggiex-site/deploys)
 
 ## What I liked & disliked
 
@@ -20,7 +20,8 @@
   - Expanding the breadcrumbs and routes in the url more logical ones (ie 'movie/movieId-[seo url of movie title])
 - Caching failed badly as its just client side and not server side. I would/could need to use NodeJs as middleware to the themoviedb.org API to add real caching (caching was demostrated using session storage [could have been local] but neither cache the API calls on a app level)
 - Adding a route for person and their components was easy. Stopped at the basics as there is the need to add multiple API calls to get all the data from the persons/ api
-- During the course Netlify was demostrated. I liked how simple this was to deploy, reminded me of Heroku. However looking at Netlify more closely, I would actually choose CloudFlare pages instead. One for the unlimted bandwidth (vs 100Gb) but also I have had very good expereinces with CloudFlare as a CDN for multiple sites, hence the first choice. (Update: Deployed to CF here https://react-rmdb.pages.dev/ )
+- During the course Netlify was demostrated for deplyment. (here https://the-awesome-moggiex-site.netlify.app/) I liked how simple this was to deploy, reminded me of Heroku. However looking at Netlify more closely, I would actually choose CloudFlare pages instead. One for the unlimted bandwidth (vs 100Gb) but also I have had very good expereinces with CloudFlare as a CDN for multiple sites, hence the first choice.
+- Update: Deployed to CF here https://react-rmdb.pages.dev/ and CF is defintely faster build to deploy each time
 - Realised that we did'nt have a way of updating the page title and description in ReactJS (and of course this is a movies site, so other og:meta data for scores/ratings, reviews etc... are all valid here!), so discovered react-helmet which solved this. This can be seen working in src/Movie.js with some extra logic to trim a long overview about a movie.
 
 ## How could I expand upon this project?
