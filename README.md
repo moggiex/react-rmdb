@@ -1,3 +1,5 @@
+<image src="https://user-images.githubusercontent.com/16717155/155543377-70daf41c-8c0e-448b-8f72-f5238219e1aa.png" width="350" align="right" />
+
 # React JS Course for Beginners
 
 7 hour course from freeCodeCamp.org here https://www.youtube.com/watch?v=nTeuhbP7wdE
@@ -5,9 +7,8 @@
 > Create a React site using movie data being pulled via the https://www.themoviedb.org/ API
 
 ## Start, End Date & Final Project
-
-- **Start:**: 21st Feb 2022
-- **End:**: 24th Feb 2022
+- **Start:** 21st Feb 2022
+- **End:** 24th Feb 2022
 - **URL:** [https://react-rmdb.pages.dev/](https://react-rmdb.pages.dev/) - Cloudflare Pages
 - **URL:** [https://the-awesome-moggiex-site.netlify.app/](https://the-awesome-moggiex-site.netlify.app/) Netlify [![Netlify Status](https://api.netlify.com/api/v1/badges/dc0c1a3a-15dc-40f0-b5bd-b840c48f59e8/deploy-status)](https://app.netlify.com/sites/the-awesome-moggiex-site/deploys)
 
