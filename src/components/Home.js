@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react';
+import { Helmet } from 'react-helmet'
 
 // config
-import { POSTER_SIZE, BACKDROP_SIZE, IMAGE_BASE_URL } from '../config';
+import { POSTER_SIZE, BACKDROP_SIZE, IMAGE_BASE_URL, SITE_NAME } from '../config';
 
 // Components
 import HeroImage from './HeroImage';
@@ -10,6 +11,8 @@ import Thumb from './Thumb';
 import Spinner from './Spinner';
 import SearchBar from './SearchBar';
 import Button from './Button';
+
+
 
 // Hook
 import { useHomeFetch } from '../hooks/useHomeFetch';
@@ -39,6 +42,10 @@ const Home = () => {
 
     return (
         <Fragment>
+
+            <Helmet>
+                <title>{SITE_NAME}</title>
+            </Helmet>
 
             <SearchBar setSearchTerm={setSearchTerm} />
 

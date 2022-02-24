@@ -1,7 +1,9 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+
 // config
-import { IMAGE_BASE_URL, POSTER_SIZE, URL_PREFIX_PERSON } from '../../config';
+import { IMAGE_BASE_URL, POSTER_SIZE, URL_PREFIX_PERSON, SITE_NAME, SITE_TITLE_SEPARATOR, SITE_DEFAULT_META_DESCRIPTION } from '../../config';
 
 // Components
 import Grid from '../Grid';
@@ -13,12 +15,14 @@ import BreadCrumb from '../BreadCrumb';
 // Components
 import Thumb from '../Thumb';
 
+// Helpers
+import { isDev } from '../../helpers';
+
 // Hook
 import { usePersonFetch } from '../../hooks/usePersonFetch';
 
 // styles
 import { Wrapper, Content, Text } from './Person.styles';
-
 
 // Image
 import NoImage from '../../images/no_image.jpg';
@@ -34,7 +38,7 @@ const Person = () => {
         personId = personId.split('-')[0];
     }
 
-    console.log('personId = ' + personId)
+    if (isDev()) console.log('personId = ' + personId)
 
     const { state: person, loading, error } = usePersonFetch(personId);
 
@@ -51,8 +55,15 @@ const Person = () => {
 
     return (
         <>
-            {/* <BreadCrumb movieTitle={movie.original_title} /> */}
-            {/* <BreadCrumb path={URL_PREFIX_PERSON} movieTitle={person.name} /> */}
+
+            <Helmet>
+                <title>{SITE_NAME} {SITE_TITLE_SEPARATOR} {person.name}</title>
+                <meta name='description' content={
+                    person.biography ? person.biography.substring(0, 255) : SITE_DEFAULT_META_DESCRIPTION
+                } />
+
+            </Helmet>
+
             <BreadCrumb movieTitle={person.name} path={URL_PREFIX_PERSON} />
 
             <Wrapper backdrop=''>
@@ -72,11 +83,15 @@ const Person = () => {
                         {aka && <h3>Also Known As:</h3>}
                         {aka && <p>{aka}</p>}
                     </Text>
+
+
                 </Content>
+
+
             </Wrapper>
 
-
-            {/* <Image src={
+            <div>
+                {/* <Image src={
                 person.profile_path
                     ?
                     `${IMAGE_BASE_URL}w342${person.profile_path}`
@@ -84,11 +99,14 @@ const Person = () => {
                     NoImage
             } alt='person-thumb' /> */}
 
-            {/* {JSON.stringify(person)}; */}
-            <ul>{
-                Object.keys(person).map(function (key) {
-                    return <li key={key}>{key}: {person[key]}</li>;
-                })}</ul>
+                <h3>Key Deatils</h3>
+                {/* {JSON.stringify(person)}; */}
+                <ul>{
+                    Object.keys(person).map(function (key) {
+                        return <li key={key}>{key}: {person[key]}</li>;
+                    })}</ul>
+            </div>
+
 
         </>
     )

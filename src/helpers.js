@@ -1,3 +1,7 @@
+
+// https://stackoverflow.com/questions/35469836/detecting-production-vs-development-react-at-runtime
+export const isDev = () => !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
+
 // Convert time to hours and minutes
 export const calcTime = time => {
   const hours = Math.floor(time / 60);

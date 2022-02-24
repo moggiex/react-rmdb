@@ -9,6 +9,8 @@ import {
   API_CACHE_TIME
 } from './config';
 
+import { isDev } from './helpers'
+
 const defaultConfig = {
   method: 'POST',
   headers: {
@@ -33,11 +35,11 @@ const apiSettings = {
     // )
 
     if (cache[endpoint] && isCacheValid(cache[endpoint].cache_ttl)) {
-      console.log("fetchMovies: FOUND cached endpoint:" + endpoint);
+      if (isDev) console.log("fetchMovies: FOUND cached endpoint:" + endpoint);
       return cache[endpoint];
     }
 
-    console.log("fetchMovies: NOT cached endpoint:" + endpoint);
+    if (isDev) console.log("fetchMovies: NOT cached endpoint:" + endpoint);
     const res = await (await fetch(endpoint)).json();
     res.cache_ttl = Date.now();
     return cache[endpoint] = res;
@@ -49,11 +51,11 @@ const apiSettings = {
     const endpoint = `${API_URL}movie/${movieId}?api_key=${API_KEY}`;
 
     if (cache[endpoint] && isCacheValid(cache[endpoint].cache_ttl)) {
-      console.log("fetchMovie: FOUND cached endpoint:" + endpoint);
+      if (isDev) console.log("fetchMovie: FOUND cached endpoint:" + endpoint);
       return cache[endpoint];
     }
 
-    console.log("fetchMovie: NOT cached endpoint:" + endpoint);
+    if (isDev) console.log("fetchMovie: NOT cached endpoint:" + endpoint);
     const res = await (await fetch(endpoint)).json();
     res.cache_ttl = Date.now();
     return cache[endpoint] = res;
@@ -66,11 +68,11 @@ const apiSettings = {
     const endpoint = `${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`;
 
     if (cache[endpoint] && isCacheValid(cache[endpoint].cache_ttl)) {
-      console.log("fetchCredits: FOUND cached endpoint:" + endpoint);
+      if (isDev) console.log("fetchCredits: FOUND cached endpoint:" + endpoint);
       return cache[endpoint];
     }
 
-    console.log("fetchCredits: NOT cached endpoint:" + endpoint);
+    if (isDev) console.log("fetchCredits: NOT cached endpoint:" + endpoint);
     const res = await (await fetch(endpoint)).json();
     res.cache_ttl = Date.now();
     return cache[endpoint] = res;

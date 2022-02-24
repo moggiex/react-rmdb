@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 // API
 import API from '../API';
 
+import { isDev } from '../helpers';
+
 export const usePersonFetch = personId => {
 
     // console.log('personID:', personId)
@@ -22,7 +24,7 @@ export const usePersonFetch = personId => {
                 // more options to get here https://developers.themoviedb.org/3/people/get-person-details
 
 
-                console.log('person response', person)
+                if (isDev) console.log('person response', person)
 
                 setState({
                     ...person

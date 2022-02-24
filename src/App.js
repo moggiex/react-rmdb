@@ -15,6 +15,7 @@ import NotFound from './components/NotFound';
 import { GlobalStyle } from './GlobalStyle';
 
 const url = URL_PREFIX_MOVIE + '/:movieId';
+const isDev = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
 
 const App = () => (
 

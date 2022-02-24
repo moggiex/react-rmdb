@@ -13,14 +13,15 @@
 
 ## What I liked & disliked
 
-- Still early days and a little bemused right now that putting CSS into individual files (styled-components), per component, even with vars/logic in the react app itself is considered a "good idea" (I am used to just relying upon BootStrap for everything FE from Yii2)
+- Still early days and a little bemused right now that putting CSS into individual files (styled-components), per component, even with vars/logic in the react app itself is considered a "good idea" (I am used to just relying upon BootStrap for everything from Yii2)
 - About 4 hours in I decided to evolve this tutorial further by:
   - Adding caching to the API calls.
   - Adding new route for persons (actors)
   - Expanding the breadcrumbs and routes in the url more logical ones (ie 'movie/movieId-[seo url of movie title])
 - Caching failed badly as its just client side and not server side. I would/could need to use NodeJs as middleware to the themoviedb.org API to add real caching (caching was demostrated using session storage [could have been local] but neither cache the API calls on a app level)
 - Adding a route for person and their components was easy. Stopped at the basics as there is the need to add multiple API calls to get all the data from the persons/ api
-- During the course Netlify was demostrated. I liked how simple this was to deploy, reminded me of Heroku. However looking at Netlify more closely, I would actually choose CloudFlare pages instead. One for the unlimted bandwidth (vs 100Gb) but also I have had very good expereinces with CloudFlare as a CDN for multiple sites, hence the first choice.
+- During the course Netlify was demostrated. I liked how simple this was to deploy, reminded me of Heroku. However looking at Netlify more closely, I would actually choose CloudFlare pages instead. One for the unlimted bandwidth (vs 100Gb) but also I have had very good expereinces with CloudFlare as a CDN for multiple sites, hence the first choice. (Update: Deployed to CF here https://react-rmdb.pages.dev/ )
+- Realised that we did'nt have a way of updating the page title and description in ReactJS (and of course this is a movies site, so other og:meta data for scores/ratings, reviews etc... are all valid here!), so discovered react-helmet which solved this. This can be seen working in src/Movie.js with some extra logic to trim a long overview about a movie.
 
 ## How could I expand upon this project?
 
