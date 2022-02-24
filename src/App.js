@@ -10,6 +10,10 @@ import Home from './components/Home';
 import Movie from './components/Movie';
 import Person from './components/Person';
 import NotFound from './components/NotFound';
+import Login from './components/Login';
+
+// Context
+import UserProvider from './context';
 
 // Styles 
 import { GlobalStyle } from './GlobalStyle';
@@ -21,10 +25,13 @@ const App = () => (
 
   <Router >
 
+    <UserProvider />
+
     <Header />
 
     <Routes>
       <Route path='/' element={<Home />} />
+      <Route path='/login' element={<Login />} />
       <Route path='movie' element={<Movie />} />
       <Route path='/movie/:movieId-:movieTitle' element={<Movie />} />
       {/* <Route path={`${URL_PREFIX_MOVIE}/:movieId`} element={<Movie />} /> */}
@@ -33,6 +40,7 @@ const App = () => (
     </Routes>
 
     <GlobalStyle />
+
   </Router>
 
 );
