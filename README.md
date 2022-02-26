@@ -39,7 +39,7 @@
 - Add a rating (stars?) for each movie, actor
 - Add the ability to add comments from users to both (would need user registration, again the reliance upon NodeJS as a BE is highlighted here for anything more than just a showcase site)
 
-⭐️ Course Contents ⭐️
+## ⭐️ Course Contents ⭐️
 
 - ⌨️ (0:00:10) Introduction
 - ⌨️ (0:00:57) The App
